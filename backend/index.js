@@ -7,10 +7,8 @@ import mongoose from "mongoose";
 // HTTP ROUTE : GET
 app.get('/', (request, response) => {
     console.log(request)
-    return response.status(234).send("HO3 Bookclub")
+    return response.status(234).send("Welcome to HO3 Bookclub")
 })
-
-
 
 mongoose
     .connect(mongoDBURL)
