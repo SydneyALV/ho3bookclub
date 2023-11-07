@@ -15,14 +15,9 @@ const bookSchema = mongoose.Schema(
             required: true,
         }
     },
-    {
+{
         timestamps: true,
     }
 );
 
-export const Book = mongoose.model('Book', bookSchema)
-
-// const Dracula = new Book({ name: "Dracula" });
-// Dracula
-//     .save()
-//     .then(() => console.log("blah bla blah"))
+export const Book = mongoose.model('book', bookSchema)
