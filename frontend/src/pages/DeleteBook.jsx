@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import axios from 'axios';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
 
 const DeleteBook = () => {

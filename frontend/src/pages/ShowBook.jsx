@@ -1,5 +1,4 @@
-
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import BackButton from '../components/BackButton';
@@ -14,12 +13,13 @@ const ShowBook = () => {
   useEffect(() => {
     setLoading(true)
     try {
-    axios
-      .get(`http://localhost:5555/books/${id}`)
-      .then((response) => {
-        setBook(response.data);
-        setLoading(false)
-    })} catch (error) {
+      axios
+        .get(`http://localhost:5555/books/${id}`)
+        .then((response) => {
+          setBook(response.data);
+          setLoading(false)
+        })
+    } catch (error) {
       console.log(error);
       setLoading(false)
     }
@@ -30,7 +30,7 @@ const ShowBook = () => {
       <BackButton />
       <h1 className='text-3xl my-4'>Show Book</h1>
       {loading ? (
-      <Spinner />
+        <Spinner />
       ) : (
         <div className='flex flex-col border-2 border-sky-400 rounded-xl w-fit p-4'>
           <div className='my-4'>
