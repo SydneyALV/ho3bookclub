@@ -13,9 +13,13 @@ const bookSchema = mongoose.Schema(
         publishYear: {
             type: Number,
             required: true,
+        },
+        bookCover: {
+            type: String,
+            required: false
         }
     },
-{
+    {
         timestamps: true,
     }
 );

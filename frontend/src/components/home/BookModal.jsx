@@ -1,7 +1,6 @@
 import { AiOutlineClose } from "react-icons/ai"
 import { PiBookOpenTextLight } from "react-icons/pi"
 import { BiUserCircle } from "react-icons/bi"
-import BookSingleCard from "./BookSingleCard"
 
 const BookModal = ({ book, onClose }) => {
     return (
@@ -26,6 +25,7 @@ const BookModal = ({ book, onClose }) => {
                     <BiUserCircle className='text-red-300 text-2xl' />
                     <h2 className='my-1'>{book.author}</h2>
                 </div>
+                <img src={book.bookCover} className="w-[150px] h-[200px]"/>
                 <p>No information provided.</p>
             </div>
         </div>
