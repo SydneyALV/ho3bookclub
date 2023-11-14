@@ -9,6 +9,7 @@ const EditBook = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [publishYear, setPublishYear] = useState('');
+  const [bookCover, setBookCover] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
@@ -33,6 +34,7 @@ const EditBook = () => {
       title,
       author,
       publishYear,
+      bookCover
     };
     setLoading(true)
     axios
@@ -81,6 +83,15 @@ const EditBook = () => {
             type='text'
             value={publishYear}
             onChange={(e) => setPublishYear(e.target.value)}
+            className='border-2 border-gray-500 px-4 py-2 w-full rounded-lg'
+          />
+        </div>
+        <div className='my-4'>
+          <label className='text-xl mr-4 text-gray-500'>Update Book Cover URL</label>
+          <input
+            type='text'
+            value={bookCover}
+            onChange={(e) => setBookCover(e.target.value)}
             className='border-2 border-gray-500 px-4 py-2 w-full rounded-lg'
           />
         </div>
