@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import Spinner from '../components/Spinner';
 import { enqueueSnackbar } from 'notistack';
+import NavigationBar from '../components/navigation/NavigationBar';
 
 const DeleteBook = () => {
   const [loading, setLoading] = useState(false);
@@ -26,7 +27,7 @@ const DeleteBook = () => {
 
   return (
     <div className='p-4'>
-      {/* <BackButton /> */}
+      <NavigationBar />
       <h1 className='text-3xl my-4 text-center'>Delete Book</h1>
       {loading ? <Spinner /> : ''}
       <div className='flex flex-col items-center border-2 border-sky-400 rounded-xl w-[600px] p-8 mx-auto'>

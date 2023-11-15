@@ -4,6 +4,7 @@ import Spinner from '../components/Spinner';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
+import NavigationBar from '../components/navigation/NavigationBar';
 
 const CreateBook = () => {
   const [title, setTitle] = useState('');
@@ -40,6 +41,7 @@ const CreateBook = () => {
 
   return (
     <div className='p-4'>
+      <NavigationBar />
       <BackButton />
       <h1 className='text-3xl my-4'>Create Book</h1>
       {loading ? (<Spinner />) : ('')}
