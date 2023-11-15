@@ -1,9 +1,9 @@
 import express from "express";
-import { User } from "../models/userModel";
+import { User } from "../models/userModel.js";
 
 const router = express.Router();
 
-// HTTP ROUTE : POST a new book
+// HTTP ROUTE : POST a new user
 router.post('/', async (request, response) => {
     try {
         if (
@@ -30,7 +30,7 @@ router.post('/', async (request, response) => {
     }
 })
 
-// HTTP ROUTE : GET all books
+// HTTP ROUTE : GET all users
 router.get('/', async (request, response) => {
     try {
 
@@ -46,13 +46,14 @@ router.get('/', async (request, response) => {
     }
 })
 
-// HTTP ROUTE : GET book by id
+// HTTP ROUTE : GET user by username
 router.get('/:username', async (request, response) => {
     try {
 
         const { username } = request.params;
 
-        const user = await User.findById(username);
+
+        const user = await User.findOne(username)
 
         return response.status(200).json(user);
 
@@ -62,7 +63,7 @@ router.get('/:username', async (request, response) => {
     }
 })
 
-// HTTP ROUTE : PUT book details
+// HTTP ROUTE : PUT user details
 router.put('/:username', async (request, response) => {
     try {
         if (
@@ -74,7 +75,6 @@ router.put('/:username', async (request, response) => {
             })
         }
 
-        const { username } = request.params;
 
         const result = await User.findByIdAndUpdate(username, request.body);
 
@@ -90,11 +90,11 @@ router.put('/:username', async (request, response) => {
     }
 })
 
-// HTTP ROUTE : DELETE book
+// HTTP ROUTE : DELETE user
 router.delete('/:username', async (request, response) => {
     try {
 
-        const { username } = request.params;
+
 
         const result = await Book.findByIdAndDelete(username);
 

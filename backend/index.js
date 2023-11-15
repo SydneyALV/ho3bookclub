@@ -2,6 +2,7 @@ import express from "express";
 import { PORT, mongoDBURL } from "./config.js";
 import mongoose from "mongoose";
 import booksRoute from './routes/booksRoute.js';
+import usersRoute from './routes/usersRoute.js'
 import cors from "cors"
 
 const app = express();
@@ -31,6 +32,9 @@ app.get('/', (request, response) => {
 // Adds /books to router automatically
 app.use('/books', booksRoute);
 
+// Adds /users to router automatically
+app.use('/users', usersRoute);
+
 mongoose
     .connect(mongoDBURL)
     .then(() => {
@@ -42,3 +46,4 @@ mongoose
     .catch((error) => {
         console.log(error);
     })
+
